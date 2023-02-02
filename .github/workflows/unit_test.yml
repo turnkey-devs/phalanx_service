@@ -1,0 +1,29 @@
+name: Unit Testing
+on: [workflow_call]
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+        typescript-version: [~4.9]
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "${{ matrix.node-version }}"
+          registry-url: "https://registry.npmjs.org"
+      # If you want to support multiple TS version
+      # - name: Install specific typescript version = (${{ matrix.typescript-version }})
+      #   run: npm i -D typescript@${{ matrix.typescript-version }}
+      - name: Install Packages 📦
+        run: npm i -g pnpm && pnpm i
+      - name: Build ⚙️
+        run: pnpm run build
+      - name: Unit Test 🧪
+        run: pnpm test
+      - name: Test Types 🧪
+        run: npm run test:types

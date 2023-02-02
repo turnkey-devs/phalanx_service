@@ -1,0 +1,17 @@
+{
+    "watch": [
+        "src",
+        "./.env",
+        "*tsconfig*",
+        "./*config*",
+        "./*package*",
+        "./*rc*"
+    ],
+    "#exec": "npm run build && npm run start",
+    "env": {
+        "SWCRC": "true",
+        "SWC_NODE_PROJECT": "./tsconfig.json"
+    },
+    "exec": "npm run build:pure && npm run start",
+    "ext": ".js,.ts,.env"
+}

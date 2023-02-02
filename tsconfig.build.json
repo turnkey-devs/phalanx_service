@@ -1,0 +1,20 @@
+{
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {
+		"rootDir": ".",
+		"baseUrl": ".",
+		"outDir": "dist",
+		"sourceMap": false,
+		"module": "ESNext",
+		"target": "ESNext",
+		"skipDefaultLibCheck": false,
+		"skipLibCheck": false
+	},
+	"include": [
+		"src/**/*.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"**/*deprecate*"
+	]
+}

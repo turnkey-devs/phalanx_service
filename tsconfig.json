@@ -1,0 +1,22 @@
+{
+	"extends": "./tsconfig.base.json",
+	"ts-node": {
+		"compiler": "swc",
+		"swc": true,
+		"compilerOptions": {
+			"plugins": [
+				"@swc-node/register"
+			],
+			"esModuleInterop": true
+		}
+	},
+	"compilerOptions": {
+		"rootDir": "."
+	},
+	"include": [
+		"./**/*.ts"
+	],
+	"exclude": [
+		"**/*deprecate*"
+	]
+}
